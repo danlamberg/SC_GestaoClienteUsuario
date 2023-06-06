@@ -1,7 +1,10 @@
 const express = require('express');
+const { body } = require('express-validator');
 const ClienteController = require('./controllers/ClienteController');
 const ProdutoController = require('./controllers/ProdutoController');
 const DocumentoController = require('./controllers/DocumentoController');
+const { validateDocumento } = require('./controllers/DocumentoController');
+
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
@@ -23,10 +26,10 @@ routes.put('/produto', ProdutoController.atualizar);
 routes.delete('/produto/:id', ProdutoController.deletar);
 
 //CRUD Documento
-routes.get('/documento', DocumentoController.listar);
-routes.get('/documento/:id', DocumentoController.findByid);
-routes.post('/documento', DocumentoController.cadastrar);
-routes.put('/documento', DocumentoController.atualizar);
-routes.delete('/documento/:id', DocumentoController.deletar);
+// routes.get('/documento', DocumentoController.listar);
+// routes.get('/documento/:id', DocumentoController.findByid);
+// routes.post('/documento', validateDocumento, DocumentoController.cadastrar);
+// routes.put('/documento/:id', DocumentoController.atualizar);
+// routes.delete('/documento/:id', DocumentoController.deletar);
 
 module.exports = routes;

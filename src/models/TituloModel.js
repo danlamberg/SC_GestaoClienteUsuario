@@ -1,22 +1,23 @@
 const { Model, DataTypes } = require('sequelize');
-const Movimentacao = require('./MovimentacaoModel');
 
 class Titulo extends Model {
     static init(sequelize){
-        super.init({
-            tipo: DataTypes.STRING,
+        super.init(
+        {
             data: DataTypes.DATE,
             valororiginal: DataTypes.FLOAT,
             situacao: DataTypes.STRING,
-            valoraberto: DataTypes.FLOAT,
+            valoraberto: DataTypes.FLOAT,            
         }, 
         
         {
             sequelize
-        })
+        });
+    }
+
+    static associate(models) {
+        Titulo.belongsTo(models.Cliente);
     }
 }
-
-Titulo.hasMany(Movimentacao);
 
 module.exports = Titulo;

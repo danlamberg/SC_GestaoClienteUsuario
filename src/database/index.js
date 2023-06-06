@@ -18,4 +18,13 @@ Produto.init(connection);
 ItemMovimentacao.init(connection);
 Titulo.init(connection);
 
+// Definir as associações
+Cliente.associate(connection.models);
+Deposito.associate(connection.models);
+Documento.associate(connection.models);
+Movimentacao.associate(connection.models);
+Produto.associate(connection.models);
+ItemMovimentacao.associate(connection.models);
+Titulo.associate(connection.models);
+
 module.exports = connection;

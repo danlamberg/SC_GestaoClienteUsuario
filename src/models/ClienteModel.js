@@ -6,11 +6,15 @@ class Cliente extends Model {
             cpf: DataTypes.INTEGER,
             nome: DataTypes.STRING,
             email: DataTypes.STRING,
-        }, 
-        
+        },         
         {
             sequelize
-        })
+        });
+    }
+
+    static associate(models) {
+        Cliente.hasMany(models.Movimentacao);
+        Cliente.hasMany(models.Titulo);
     }
 }
 
