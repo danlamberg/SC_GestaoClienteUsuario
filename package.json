@@ -1,0 +1,23 @@
+{
+  "name": "gestaoclienteprodutos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
+  },
+  "author": "Daniel Lamberg",
+  "license": "ISC",
+  "dependencies": {
+    "cjs": "^0.0.11",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.2.4",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.31.1",
+    "sequelize-cli": "^6.6.0",
+    "yarn": "^1.22.19"
+  }
+}

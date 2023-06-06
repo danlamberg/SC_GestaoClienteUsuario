@@ -1,0 +1,29 @@
+npm init -y
+npm i yarn
+yarn add express
+yarn add mysql2
+yarn add sequelize
+yarn add nodemon
+yarn add cookie-parser
+yarn add cors
+Adicionado a extensão do yarn no VS code
+Instalado no pelo cmd do windows o npm install yarn
+Cria-se o arquivo .sequelizerc
+const path = require('path');
+
+module.exports = {
+  config: path.resolve(__dirname, 'src', 'config', 'database.js'),
+  'migrations-path': path.resolve(__dirname, 'src', 'database', 'migrations'),
+};
+yarn sequelize db:create
+yarn sequelize migration:create --name migrationCliente
+yarn sequelize db:migrate
+
+Cria-se a models - ClienteModel.js
+Cria-se a controllers - ClienteController.js
+Cria-se o services - auth.js
+
+jwt:
+yarn add jsonwebtoken
+yarn add bcryptjs
+yarn add helmet
