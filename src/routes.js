@@ -4,11 +4,30 @@ const ClienteController = require('./controllers/ClienteController');
 const ProdutoController = require('./controllers/ProdutoController');
 const DocumentoController = require('./controllers/DocumentoController');
 const { validateDocumento } = require('./controllers/DocumentoController');
+const { autentica } = require('../src/services/auth');
 
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-    res.send('Servidor de Clientes!')
+  res.send('Servidor de Clientes!');
+});
+
+// Rota de login com autenticação JWT
+routes.post('/login', async (req, res) => {
+  const { nome, senha } = req.body;
+
+  try {
+    // Chama a função autentica do auth.js para realizar a autenticação
+    const usuario = await autentica({ nome, senha });
+
+    if (usuario.auth) {
+      res.json({ auth: true, token: usuario.token });
+    } else {
+      res.status(401).json({ auth: false, message: 'Credenciais inválidas' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Ocorreu um erro no servidor' });
+  }
 });
 
 //CRUD Cliente

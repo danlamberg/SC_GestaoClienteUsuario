@@ -25,5 +25,5 @@ Cria-se o services - auth.js
 
 jwt:
 yarn add jsonwebtoken
-yarn add bcryptjs
-yarn add helmet
+yarn add bcrypt
+yarn add dotenv

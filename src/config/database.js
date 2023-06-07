@@ -4,7 +4,7 @@ module.exports = {
     username: 'root',
     port: '3306',
     password: 'minhasenha',
-    database: 'gestaoclientes',
+    database: 'GestaoSistemaCorporativo',
     define: {
       timestamps: false, //alterado de true para false devido a execução no Postman/Insominia
       underscored: true,
