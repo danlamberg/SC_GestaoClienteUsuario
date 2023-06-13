@@ -3,13 +3,15 @@ const { body } = require('express-validator');
 const ClienteController = require('./controllers/ClienteController');
 const ProdutoController = require('./controllers/ProdutoController');
 const DocumentoController = require('./controllers/DocumentoController');
-const { validateDocumento } = require('./controllers/DocumentoController');
-const { autentica } = require('../src/services/auth');
+const MovimentacaoController = require('./controllers/MovimentacaoController');
+const UsuarioController = require('./controllers/UsuarioController');
+
+const { autentica } = require('./services/auth');
 
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-  res.send('Servidor de Clientes!');
+  res.send('Servidor de Gestão!');
 });
 
 // Rota de login com autenticação JWT
@@ -29,26 +31,40 @@ routes.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Ocorreu um erro no servidor' });
   }
 });
+// CRUD de Usuário
+routes.get('/', UsuarioController.listar);
+routes.get('/validar', UsuarioController.validarToken);
+routes.post('/', UsuarioController.salvar);
+routes.get('/:id', UsuarioController.buscarPorId);
+routes.put('/:id', UsuarioController.atualizar);
+routes.delete('/:id', UsuarioController.excluir);
 
 //CRUD Cliente
-routes.get('/cliente', ClienteController.listar);
-routes.get('/cliente/:id', ClienteController.findByid);
-routes.post('/cliente', ClienteController.cadastrar);
-routes.put('/cliente', ClienteController.atualizar);
-routes.delete('/cliente/:id', ClienteController.deletar);
+routes.get('/cliente', ClienteController.listar.bind(ClienteController));
+routes.get('/cliente/:id', ClienteController.findByid.bind(ClienteController));
+routes.post('/cliente', ClienteController.cadastrar.bind(ClienteController));
+routes.put('/cliente', ClienteController.atualizar.bind(ClienteController));
+routes.delete('/cliente/:id', ClienteController.deletar.bind(ClienteController));
 
 //CRUD Produto
-routes.get('/produto', ProdutoController.listar);
-routes.get('/produto/:id', ProdutoController.findByid);
-routes.post('/produto', ProdutoController.cadastrar);
-routes.put('/produto', ProdutoController.atualizar);
-routes.delete('/produto/:id', ProdutoController.deletar);
+routes.get('/produto', ProdutoController.listar.bind(ProdutoController));
+routes.get('/produto/:id', ProdutoController.findByid.bind(ProdutoController));
+routes.post('/produto', ProdutoController.cadastrar.bind(ProdutoController));
+routes.put('/produto', ProdutoController.atualizar.bind(ProdutoController));
+routes.delete('/produto/:id', ProdutoController.deletar.bind(ProdutoController));
 
-//CRUD Documento
-// routes.get('/documento', DocumentoController.listar);
-// routes.get('/documento/:id', DocumentoController.findByid);
-// routes.post('/documento', validateDocumento, DocumentoController.cadastrar);
-// routes.put('/documento/:id', DocumentoController.atualizar);
-// routes.delete('/documento/:id', DocumentoController.deletar);
+// CRUD Documento
+routes.get('/documento', DocumentoController.listar.bind(DocumentoController));
+routes.get('/documento/:id', DocumentoController.findById.bind(DocumentoController));
+routes.post('/documento', DocumentoController.cadastrar.bind(DocumentoController));
+routes.put('/documento/:id', DocumentoController.atualizar.bind(DocumentoController));
+routes.delete('/documento/:id', DocumentoController.deletar.bind(DocumentoController));
+
+// CRUD Movimentacao
+routes.get('/movimentacoes', MovimentacaoController.listar.bind(MovimentacaoController));
+routes.get('/movimentacoes/:id', MovimentacaoController.findById.bind(MovimentacaoController));
+routes.post('/movimentacoes', MovimentacaoController.cadastrar.bind(MovimentacaoController));
+routes.put('/movimentacoes/:id', MovimentacaoController.atualizar.bind(MovimentacaoController));
+routes.delete('/movimentacoes/:id', MovimentacaoController.deletar.bind(MovimentacaoController));
 
 module.exports = routes;

@@ -12,6 +12,8 @@ class Documento extends Model {
         sequelize,
       }
     );
+
+    return Documento; // Adicione essa linha para retornar a classe do modelo
   }
 
   static associate(models) {
@@ -20,4 +22,4 @@ class Documento extends Model {
   }
 }
 
-module.exports = Documento;
+module.exports = Movimentacao;

@@ -11,19 +11,19 @@ module.exports = {
        autoIncrement: true
    },
  
-   cpf:{
-       type: Sequelize.INTEGER,
+   tipo:{
+       type: Sequelize.STRING,
        allowNull: false
  
    },
  
-   nome:{
-       type: Sequelize.STRING,
+   data:{
+       type: Sequelize.DATE,
        allowNull: false
    },
  
-   email:{
-       type: Sequelize.STRING,
+   valor:{
+       type: Sequelize.FLOAT,
        allowNull: true
    },
    

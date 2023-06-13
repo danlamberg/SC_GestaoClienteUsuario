@@ -4,9 +4,9 @@ class Movimentacao extends Model {
     static init(sequelize){
         super.init(
         {
-            cpf: DataTypes.INTEGER,
-            nome: DataTypes.STRING,
-            email: DataTypes.STRING,
+            tipo: DataTypes.STRING,
+            data: DataTypes.DATE,
+            valor: DataTypes.FLOAT,
 
         }, 
         {

@@ -8,7 +8,7 @@ function autentica(usuario) {
 
   if (usuario.nome === 'admin' && usuario.senha === 'admin') {
     console.log('Existe');
-    const id = 123; // Esta linha será substituída posteriormente
+    const id = 123; 
     const token = jwt.sign({ id }, process.env.SECRET, { expiresIn: '1h' });
     usuario.id = id;
     usuario.auth = true;

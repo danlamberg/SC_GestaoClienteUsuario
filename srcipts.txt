@@ -22,6 +22,7 @@ yarn sequelize db:migrate
 Cria-se a models - ClienteModel.js
 Cria-se a controllers - ClienteController.js
 Cria-se o services - auth.js
+Cria-se o usuário para login 
 
 jwt:
 yarn add jsonwebtoken
