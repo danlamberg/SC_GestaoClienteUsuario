@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const dbConfig = require('../config/database');
+const Usuario = require('../models/UsuarioModel');
 const Cliente = require('../models/ClienteModel');
 const Deposito = require('../models/DepositoModel');
 const Documento = require('../models/DocumentoModel');
@@ -10,6 +11,7 @@ const Titulo = require('../models/TituloModel');
 
 const connection = new Sequelize(dbConfig);
 
+Usuario.init(connection);
 Cliente.init(connection);
 Deposito.init(connection);
 Documento.init(connection);

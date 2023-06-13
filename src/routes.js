@@ -35,7 +35,7 @@ routes.post('/login', async (req, res) => {
 routes.get('/', UsuarioController.listar);
 routes.get('/validar', UsuarioController.validarToken);
 routes.post('/', UsuarioController.salvar);
-routes.get('/:id', UsuarioController.buscarPorId);
+routes.get('/usuario:id', UsuarioController.buscarPorId);
 routes.put('/:id', UsuarioController.atualizar);
 routes.delete('/:id', UsuarioController.excluir);
 
