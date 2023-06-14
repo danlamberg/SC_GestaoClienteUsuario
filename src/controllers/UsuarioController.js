@@ -2,6 +2,8 @@ const Usuario = require('../models/UsuarioModel');
 const jwt = require('jsonwebtoken');
 const chavesecreta = 'minhasenha';
 
+const usuarioModel = require('../models/UsuarioModel');
+
 module.exports = {
   async listar(req, res) {
     try {
@@ -32,27 +34,27 @@ module.exports = {
     const { nome, senha } = req.body;
     console.log(nome);
     console.log(senha);
-
+    
     try {
-      // Verificar se já existe um usuário com o mesmo nome
-      const usuarioExistente = await Usuario.findOne({ where: { nome } });
+        // Verificar se já existe um usuário com o mesmo nome
+        const usuarioExistente = await usuarioModel.findOne({ where: { nome } });
+        
+        if (usuarioExistente) {
+            return res.status(400).json({ error: 'O nome de usuário já está em uso' });
+        }
 
-      if (usuarioExistente) {
-        return res.status(400).json({ error: 'O nome de usuário já está em uso' });
-      }
+        // Criar um novo usuário
+        const usuario = await usuarioModel.create({
+            nome,
+            senha
+        });
 
-      // Criar um novo usuário
-      const usuario = await Usuario.create({
-        nome,
-        senha
-      });
-
-      res.status(201).json(usuario);
+        res.status(201).json(usuario);
     } catch (error) {
-      console.error('Erro ao criar usuário:', error);
-      res.status(500).json({ error: 'Erro ao criar usuário' });
+        console.error('Erro ao criar usuário:', error);
+        res.status(500).json({ error: 'Erro ao criar usuário' });
     }
-  },
+},
 
   async atualizar(req, res) {
     const id = req.params.id;

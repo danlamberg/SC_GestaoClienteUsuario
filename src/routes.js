@@ -14,30 +14,14 @@ routes.get('/', (req, res) => {
   res.send('Servidor de Gestão!');
 });
 
-// Rota de login com autenticação JWT
-routes.post('/login', async (req, res) => {
-  const { nome, senha } = req.body;
-
-  try {
-    // Chama a função autentica do auth.js para realizar a autenticação
-    const usuario = await autentica({ nome, senha });
-
-    if (usuario.auth) {
-      res.json({ auth: true, token: usuario.token });
-    } else {
-      res.status(401).json({ auth: false, message: 'Credenciais inválidas' });
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Ocorreu um erro no servidor' });
-  }
-});
 // CRUD de Usuário
 routes.get('/', UsuarioController.listar);
-routes.get('/validar', UsuarioController.validarToken);
-routes.post('/', UsuarioController.salvar);
+routes.post('/login', UsuarioController.autenticar);
+routes.get('/usuario/validar', UsuarioController.validarToken);
+routes.post('/usuario/', UsuarioController.salvar);
 routes.get('/usuario:id', UsuarioController.buscarPorId);
-routes.put('/:id', UsuarioController.atualizar);
-routes.delete('/:id', UsuarioController.excluir);
+routes.put('/usuario:id', UsuarioController.atualizar);
+routes.delete('/usuario:id', UsuarioController.excluir);
 
 //CRUD Cliente
 routes.get('/cliente', ClienteController.listar.bind(ClienteController));

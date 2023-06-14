@@ -7,6 +7,8 @@ class Produto extends Model {
       {
         nome: DataTypes.INTEGER,
         descricao: DataTypes.INTEGER,
+        //quantidade
+        
       },
       {
         sequelize,

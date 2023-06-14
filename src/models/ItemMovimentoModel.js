@@ -5,6 +5,7 @@ class ItemMovimentacao extends Model {
     super.init(
       {
         quantidade: DataTypes.INTEGER,
+        //valorunitario
       },
       {
         sequelize,
@@ -15,6 +16,7 @@ class ItemMovimentacao extends Model {
   static associate(models) {
     // Defina as associações aqui, por exemplo:
     this.belongsTo(models.Movimentacao, { foreignKey: 'movimentacaoId', as: 'movimentacao' });
+    //relacionar com produtoId, movimentoId
   }
 }
 
