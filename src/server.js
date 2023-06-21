@@ -9,7 +9,6 @@ require('./database');
 require('dotenv').config();
 
 const app = express()
-const auth = require('./services/auth');
 
 app.use(cors());
 app.use(cookieParser());

@@ -7,7 +7,8 @@ class Produto extends Model {
       {
         nome: DataTypes.INTEGER,
         descricao: DataTypes.INTEGER,
-        //quantidade
+        quantidade: DataTypes.INTEGER,
+        preco: DataTypes.FLOAT,
         
       },
       {

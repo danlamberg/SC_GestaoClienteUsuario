@@ -5,7 +5,7 @@ class ItemMovimentacao extends Model {
     super.init(
       {
         quantidade: DataTypes.INTEGER,
-        //valorunitario
+        valorunitario: DataTypes.FLOAT,
       },
       {
         sequelize,

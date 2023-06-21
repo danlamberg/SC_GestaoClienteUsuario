@@ -10,26 +10,32 @@ module.exports = {
        primaryKey: true,
        autoIncrement: true
    }, 
+
    tipo: {
     type: Sequelize.STRING,
     allowNull: false
   },
+
   data: {
     type: Sequelize.DATE,
     allowNull: false
   },
+
   valororiginal: {
     type: Sequelize.FLOAT,
     allowNull: false
   },
+
   situacao: {
     type: Sequelize.STRING,
     allowNull: false
   },
+
   valoraberto: {
     type: Sequelize.FLOAT,
     allowNull: false
   },
+  
 });
 },
 

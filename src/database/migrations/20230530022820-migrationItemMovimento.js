@@ -10,12 +10,18 @@ module.exports = {
        primaryKey: true,
        autoIncrement: true
    }, 
+
    quantidade:{
        type: Sequelize.INTEGER,
        allowNull: true
    },
+
+   valorunitario:{
+    type: Sequelize.FLOAT,
+    allowNull: true
+   },
    
-    });
+  });
   },
   
   async down (queryInterface, Sequelize) {

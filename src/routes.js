@@ -6,8 +6,6 @@ const DocumentoController = require('./controllers/DocumentoController');
 const MovimentacaoController = require('./controllers/MovimentacaoController');
 const UsuarioController = require('./controllers/UsuarioController');
 
-const { autentica } = require('./services/auth');
-
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
