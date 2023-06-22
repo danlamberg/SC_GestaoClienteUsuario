@@ -4,19 +4,27 @@ class ItemMovimentacao extends Model {
   static init(sequelize) {
     super.init(
       {
-        quantidade: DataTypes.INTEGER,
-        valorunitario: DataTypes.FLOAT,
+        quantidade: {
+          type: DataTypes.INTEGER,
+          allowNull: true,
+        },
+        valorunitario: {
+          type: DataTypes.FLOAT,
+          allowNull: true,
+        },
       },
       {
+        tableName: 'itens_movimentacao',
         sequelize,
       }
     );
   }
 
   static associate(models) {
-    // Defina as associações aqui, por exemplo:
-    this.belongsTo(models.Movimentacao, { foreignKey: 'movimentacaoId', as: 'movimentacao' });
-    //relacionar com produtoId, movimentoId
+    this.belongsTo(models.Movimentacao, {
+      foreignKey: 'movimentacaoId',
+      as: 'movimentacao',
+    });
   }
 }
 

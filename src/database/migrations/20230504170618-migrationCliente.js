@@ -12,7 +12,7 @@ module.exports = {
    },
  
    cpf:{
-       type: Sequelize.INTEGER,
+       type: Sequelize.BIGINT,
        allowNull: false
  
    },
