@@ -5,8 +5,8 @@ class Produto extends Model {
   static init(sequelize) {
     super.init(
       {
-        nome: DataTypes.INTEGER,
-        descricao: DataTypes.INTEGER,
+        nome: DataTypes.STRING,
+        descricao: DataTypes.STRING,
         quantidade: DataTypes.INTEGER,
         preco: DataTypes.FLOAT,
         

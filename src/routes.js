@@ -14,43 +14,43 @@ routes.get('/', (req, res) => {
 });
 
 // CRUD de Usuário
-routes.get('/', UsuarioController.listar);
-routes.post('/login', UsuarioController.autenticar);
-routes.get('/usuario/validar', UsuarioController.validarToken);
-routes.post('/usuario/', UsuarioController.salvar);
-routes.get('/usuario:id', UsuarioController.buscarPorId);
-routes.put('/usuario:id', UsuarioController.atualizar);
-routes.delete('/usuario:id', UsuarioController.excluir);
+routes.get('/', UsuarioController.listar.bind(UsuarioController));
+routes.post('/login', UsuarioController.autenticar.bind(UsuarioController));
+routes.get('/usuario/validar', UsuarioController.validarToken.bind(UsuarioController));
+routes.post('/usuario/', UsuarioController.salvar.bind(UsuarioController));
+routes.get('/usuario/:id', UsuarioController.buscarPorId.bind(UsuarioController));
+routes.put('/usuario/:id', UsuarioController.atualizar.bind(UsuarioController));
+routes.delete('/usuario/:id', UsuarioController.excluir.bind(UsuarioController));
 
-//CRUD de Cliente
-routes.get('/cliente', ClienteController.listar);
-routes.get('/cliente/:id', ClienteController.findById);
-routes.post('/cliente', ClienteController.cadastrar);
-routes.put('/cliente/:id', ClienteController.atualizar);
-routes.delete('/cliente/:id', ClienteController.deletar);
+// CRUD de Cliente
+routes.get('/cliente', ClienteController.listar.bind(ClienteController));
+routes.get('/cliente/:id', ClienteController.findById.bind(ClienteController));
+routes.post('/cliente', ClienteController.cadastrar.bind(ClienteController));
+routes.put('/cliente/:id', ClienteController.atualizar.bind(ClienteController));
+routes.delete('/cliente/:id', ClienteController.deletar.bind(ClienteController));
 
-//CRUD de Produto
-routes.get('/produto', ProdutoController.listar.bind);
-routes.get('/produto/:id', ProdutoController.findByid.bind);
-routes.post('/produto', ProdutoController.cadastrar.bind);
-routes.put('/produto', ProdutoController.atualizar.bind);
-routes.delete('/produto/:id', ProdutoController.deletar.bind);
+// CRUD de Produto
+routes.get('/produto', ProdutoController.listar.bind(ProdutoController));
+routes.get('/produto/:id', ProdutoController.findByid.bind(ProdutoController));
+routes.post('/produto', ProdutoController.cadastrar.bind(ProdutoController));
+routes.put('/produto/:id', ProdutoController.atualizar.bind(ProdutoController));
+routes.delete('/produto/:id', ProdutoController.deletar.bind(ProdutoController));
 
 // CRUD de Documento
-routes.get('/documento', DocumentoController.listar.bind);
-routes.get('/documento/:id', DocumentoController.findById.bind);
-routes.post('/documento', DocumentoController.cadastrar.bind);
-routes.put('/documento/:id', DocumentoController.atualizar.bind);
-routes.delete('/documento/:id', DocumentoController.deletar.bind);
+routes.get('/documento', DocumentoController.listar.bind(DocumentoController));
+routes.get('/documento/:id', DocumentoController.findById.bind(DocumentoController));
+routes.post('/documento', DocumentoController.cadastrar.bind(DocumentoController));
+routes.put('/documento/:id', DocumentoController.atualizar.bind(DocumentoController));
+routes.delete('/documento/:id', DocumentoController.deletar.bind(DocumentoController));
 
 // CRUD de Movimentacao
-routes.get('/movimentacoes', MovimentacaoController.listar.bind);
-routes.get('/movimentacoes/:id', MovimentacaoController.findById.bind);
-routes.post('/movimentacoes', MovimentacaoController.salvar.bind);
-routes.put('/movimentacoes/:id', MovimentacaoController.atualizar.bind);
-routes.delete('/movimentacoes/:id', MovimentacaoController.deletar.bind);
+routes.get('/movimentacoes', MovimentacaoController.listar.bind(MovimentacaoController));
+routes.get('/movimentacoes/:id', MovimentacaoController.findById.bind(MovimentacaoController));
+routes.post('/movimentacoes', MovimentacaoController.salvar.bind(MovimentacaoController));
+routes.put('/movimentacoes/:id', MovimentacaoController.atualizar.bind(MovimentacaoController));
+routes.delete('/movimentacoes/:id', MovimentacaoController.deletar.bind(MovimentacaoController));
 
-//CRUD de Depositos
-routes.get('/', DepositoController.listar);
+// CRUD de Depositos
+routes.get('/depositos', DepositoController.listar.bind(DepositoController));
 
 module.exports = routes;
