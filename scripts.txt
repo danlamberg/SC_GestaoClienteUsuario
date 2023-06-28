@@ -1,3 +1,5 @@
+Comandos executados seguindo tutoriais do Youtube, ChatGpt e apoio dos colegas em sala.
+
 npm init -y
 npm i yarn
 yarn add express
